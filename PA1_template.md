@@ -191,7 +191,7 @@ It seems that the value for the mean hasn't changed, but the median has been dis
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
-1.Create a new factor variable in the dataset with two levels – “weekday” and “weekend” indicating whether a given date is a weekday or weekend day.
+1. Create a new factor variable in the dataset with two levels – “weekday” and “weekend” indicating whether a given date is a weekday or weekend day.
 
 
 ```r
@@ -199,7 +199,7 @@ imputedSteps$date <- as.Date(activity$date)
 imputedSteps <- imputedSteps %>% mutate(dayType = ifelse(weekdays(imputedSteps$date) %in% c("dissabte", "diumenge"), "weekend", "weekday"))
 ```
 
-2.Make a panel plot containing a time series plot (i.e. 𝚝𝚢𝚙𝚎 = “𝚕”) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).
+2. Make a panel plot containing a time series plot (i.e. 𝚝𝚢𝚙𝚎 = “𝚕”) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).
 
 
 ```r

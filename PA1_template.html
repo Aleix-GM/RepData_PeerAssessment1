@@ -509,14 +509,18 @@ we added average values to impute the missing ones.</p>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">
 <h2>Are there differences in activity patterns between weekdays and
 weekends?</h2>
-<p>1.Create a new factor variable in the dataset with two levels –
+<ol style="list-style-type: decimal">
+<li>Create a new factor variable in the dataset with two levels –
 “weekday” and “weekend” indicating whether a given date is a weekday or
-weekend day.</p>
+weekend day.</li>
+</ol>
 <pre class="r"><code>imputedSteps$date &lt;- as.Date(activity$date)
 imputedSteps &lt;- imputedSteps %&gt;% mutate(dayType = ifelse(weekdays(imputedSteps$date) %in% c(&quot;dissabte&quot;, &quot;diumenge&quot;), &quot;weekend&quot;, &quot;weekday&quot;))</code></pre>
-<p>2.Make a panel plot containing a time series plot (i.e. 𝚝𝚢𝚙𝚎 = “𝚕”)
-of the 5-minute interval (x-axis) and the average number of steps taken,
-averaged across all weekday days or weekend days (y-axis).</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Make a panel plot containing a time series plot (i.e. 𝚝𝚢𝚙𝚎 = “𝚕”) of
+the 5-minute interval (x-axis) and the average number of steps taken,
+averaged across all weekday days or weekend days (y-axis).</li>
+</ol>
 <pre class="r"><code>meanStepsIntervalImputed &lt;- imputedSteps %&gt;% group_by(dayType, interval) %&gt;% summarise_all(mean)
 
 g &lt;- ggplot(meanStepsIntervalImputed, aes(x = interval, y = steps, color = dayType))
